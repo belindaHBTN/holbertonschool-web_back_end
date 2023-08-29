@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """a type-annotations function"""
-from typing import TypeVar, Dict, Any, Union
+from typing import TypeVar, Dict
 
 
-T = TypeVar('T')
+K = TypeVar('K')
+T = TypeVar('V')
 
 
-def safely_get_value(dct: Dict[Any, T], key: Any, default: T = None) -> T:
+def safely_get_value(dct: Dict[K, V], key: K, default: V = None) -> V:
     """return lst or None"""
     if key in dct:
         return dct[key]
