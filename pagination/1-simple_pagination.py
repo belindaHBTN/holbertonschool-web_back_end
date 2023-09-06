@@ -38,10 +38,13 @@ class Server:
         assert isinstance(page, int) and isinstance(page_size, int), "bad arg"
         assert page > 0 and page_size > 0, "bad arg"
 
-        if (page * page_size) > len(self.__dataset):
+        dataset = self.dataset()
+        if (page * page_size) > len(dataset):
             return []
-        index_range = index_range(page, page_size)
+        idx_range = index_range(page, page_size)
+        start_idx = idx_range[0]
+        end_idx = idx_range[1]
         data_list = []
-        for row in index_range:
+        for row in range(start_idx, end_idx):
             data_list.append(row)
         return data_list
