@@ -5,7 +5,7 @@ Deletion-resilient hypermedia pagination
 
 import csv
 import math
-from typing import List
+from typing import List, Dict
 
 
 class Server:
@@ -52,11 +52,10 @@ class Server:
         filtered_data_list = []
         for i in range(start_idx, end_idx):
             if i in indexed_data_list:
-                selected_data_list.append(indexed_data_list[i])
+                filtered_data_list.append(indexed_data_list[i])
 
         data_dict = {'index': index,
                      'data': filtered_data_list,
                      'page_size': page_size,
                      'next_index': end_idx}
         return data_dict
-
