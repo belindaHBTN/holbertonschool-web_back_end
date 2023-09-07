@@ -58,14 +58,13 @@ class Server:
         if next_p > total_p:
             next_p = None
         prev_p = page - 1
-        if prev_p < 0:
+        if prev_p < 1:
             prev_p = None
 
         data_dict = {'page_size': page_size,
-                'page': page,
-                'data': data_list,
-                'next_page': next_p,
-                'prev_page': prev_p,
-                'total_pages': total_p
-        }
+                     'page': page,
+                     'data': data_list,
+                     'next_page': next_p,
+                     'prev_page': prev_p,
+                     'total_pages': total_p}
         return data_dict
